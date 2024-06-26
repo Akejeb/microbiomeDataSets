@@ -120,6 +120,7 @@ jobs:
         if: runner.os == 'Linux'
         env:
           RHUB_PLATFORM: linux-x86_64-ubuntu-gcc
+          CURL_SSL_NO_REVOKE: 1
         run: |
           Rscript -e "devtools::install_github('r-hub/sysreqs')"
           sysreqs=$(Rscript -e "cat(sysreqs::sysreq_commands('DESCRIPTION'))")
