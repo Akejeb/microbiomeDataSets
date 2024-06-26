@@ -255,6 +255,8 @@ jobs:
 
       - name: Deploy package
         if: github.ref == 'refs/heads/master' && env.run_pkgdown == 'true' && runner.os == 'Linux'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
         run: |
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
